@@ -1,0 +1,15 @@
+.chackout_container{
+    display: flex;
+}
+.img{
+    margin-top: 20px;
+}
+.img img{
+    max-width: 150px;
+    height: auto;
+}
+.info_container{
+    margin-top: 20px;
+    margin-left: 10px;
+    padding: 5px;
+}

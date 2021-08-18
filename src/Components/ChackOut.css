@@ -1,0 +1,13 @@
+.chackout{
+    display: flex;
+    background-color: white;
+    padding: 20px;
+    height: max-content;
+    
+}
+.chackout_right{
+    /* justify-content: end; */
+    /* width: 100%; */
+    margin-right: 0;
+    margin-left: auto;
+}
