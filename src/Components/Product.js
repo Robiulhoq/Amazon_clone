@@ -2,16 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './Product.css';
 import { addToCart } from '../StateManager/cartAction';
-
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import { Link, useParams } from 'react-router-dom';
 const Product = (props) => {
     
-    const {id, title, price, img, rating,catagory} = props.item;
+    const {id, title, des, price, img, rating,catagory} = props.item;
     const addCartItem = {id, title, price, img, rating,catagory};
-    
+    const productId = useParams();
     return (
         <div className='product'>
             <div className="product_info">
-                <p>{title}</p>
+                <h6>{title}</h6>
                 <p className='product_price'>
                     <small>$</small>
                     <strong>{price}</strong>
@@ -25,7 +26,10 @@ const Product = (props) => {
                 </p>
             </div>
             <img src={img} alt="" />
-            <button className="btn btn-warning" onClick={()=>props.addCart(addCartItem)}>ADD TO BUSKET</button>
+            <div className="d-flex justify-content-between group_btn"><button className="btn btn-warning" onClick={()=>props.addCart(addCartItem)}>ADD TO BUSKET</button>
+            
+            <Link to={`/product/${id}`} ><VisibilityIcon/></Link>
+            </div>
         </div>
     );
 };

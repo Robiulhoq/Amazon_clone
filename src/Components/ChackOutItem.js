@@ -4,7 +4,7 @@ import {removeFromCart} from '../StateManager/cartAction';
 import './chackOutItem.css';
 const ChackOutItem = (props) => {
     const {title,id,img,price} =props.item;
-    
+    const countPrice = 1;
     return (
         <div className="chackout_container">
             <div className="img">

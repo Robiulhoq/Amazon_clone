@@ -1,46 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Home.css';
 import Product from './Product';
 import product1 from './FakeData/product1.json';
-const Home = () => {
+import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 
-    return (
-        <div className='home'>
-            <div className="home_container">
-            <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div className="carousel-item active" data-bs-interval="1500">
-      <img className="home_image" src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_Computers_1x._CB432469755_.jpg" class="d-block w-100" alt="..."/>
-    </div>
-    <div className="carousel-item"data-bs-interval="2000">
-      <img className="home_image"src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_Home_v2_en_US_1x._CB429090084_.jpg" class="d-block w-100" alt="..."/>
-    </div>
-    <div className="carousel-item" data-bs-interval="2000">
-      <img className="home_image"src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_TallHero_Gamers_en_US_1x._CB667161802_.jpg" class="d-block w-100" alt="..."/>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-            </div>
-            <div className="home_row">
-                {
+const Home = () => {
+  const sliderImage = [
+    "https://res.cloudinary.com/dv8sz8mml/image/upload/c_scale,w_1000/v1686395543/amazon_clone/Untitled_design_krbhr8.png",
+    "https://res.cloudinary.com/dv8sz8mml/image/upload/c_scale,w_1000/v1686395543/amazon_clone/Untitled_design_1_fvhjt5.png",
+    "https://res.cloudinary.com/dv8sz8mml/image/upload/c_scale,w_1000/v1686395542/amazon_clone/Get_it_on_the_App_Store_mashyd.png"
+  ];
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const prev = () => {
+    if(currentSlide <= 0){
+      setCurrentSlide(1);
+    }
+    setCurrentSlide(currentSlide => currentSlide - 1);
+  }
+
+  const next = () => {
+    if(currentSlide >= 2){
+      setCurrentSlide(1)
+    }
+    setCurrentSlide(currentSlide => currentSlide + 1);
+  }
+
+  return (
+    <div className='home'>
+      <div className="header_image_slider">
+        {sliderImage.map((item, index) => (
+          <img
+            key={index}
+            className={`slider_img ${index === currentSlide ? 'active' : ''}`}
+            src={item}
+            alt=""
+          />
+        ))}
+        <div className="slider_button">
+          <KeyboardArrowLeftIcon className='slider_left_arrow' onClick={prev}/>
+          <KeyboardArrowRightIcon className='slider_right_arrow' onClick={next}/>
+        </div>
+      </div>
+      <h4 className='text-center m-4'>Popular products</h4>
+      <div className="home_row">
+      {
                     product1.map(item => item.catagory === "mango" ? <Product item={item}></Product> : null)
                 }
                 {
                     product1.map(item => item.catagory === "lisu" ? <Product item={item}></Product> : null)
                 }
-
-
-            </div>
-            <div className="home_row">
-                {
+      </div>
+      <h4 className='text-center m-4'>Digital products</h4>
+      <div className="home_row">
+      {
                     product1.map(item => item.catagory === "jam" ? <Product item={item}></Product> : null)
                 }
                 {
@@ -49,14 +63,9 @@ const Home = () => {
                 {
                     product1.map(item => item.catagory === "orange" ? <Product item={item}></Product> : null)
                 }
-            </div>
-            <div className="home_row">
-                {/* {
-                    product1.map(item => item.catagory === "mango" ? <Product item={item}></Product> : null)
-                } */}
-            </div>
-        </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Home;

@@ -1,5 +1,5 @@
 .login{
-    background-color: white;
+    background-color: rgb(206, 206, 206);
     height:100vh;
     width: 100%;
     display: flex;
@@ -16,9 +16,10 @@
     margin-right: auto;
 }
 .input_container{
-    border: 1px solid black;
+    background-color: white;
     width: 300px;
     height: auto;
+    padding: 20px;
 }
 /* .input_container input ,h5,button{
     padding: 5px;
@@ -33,6 +34,6 @@
 .input_container button:hover{
     background-color: coral;
 }  */
-.submit_btn{
-    width: 275px;
+p{
+    margin: 0px;
 }

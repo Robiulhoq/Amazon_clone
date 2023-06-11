@@ -1,0 +1,33 @@
+.product_ditails_container{
+    background-color: white;
+    margin: 20px auto;
+}
+.product_img_container img{
+    width: 90%;
+    padding: 10px;
+}
+.product_ditails_information{
+    padding: 10px;
+}
+.product_ditails_information li{
+    text-decoration: dotted;
+}
+.product_select_size{
+    display: flex;
+    margin-right: 100px;
+    padding: 0px;
+    justify-content: space-between;
+}
+.product_select_size li{
+    background-color: black;
+    color: white;
+    border-radius: 50px;
+    padding: 10px;
+}
+li:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transform: 0.5s;
+
+}

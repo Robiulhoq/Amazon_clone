@@ -1,7 +1,43 @@
 .footer{
-    background-color: #232F3E;
-    height: 75vh;
+    background-color: #060708;
+    height: auto;
+    width: 100%;
+    color: white;
+    padding: 2rem;
 }
-.footer_text b{
-    color: #DDDDD3;
+li{
+    text-decoration: none;
+    list-style: none;
+    padding: 8px;
+    color: gray;
+    font-weight: 400;
+}
+.subscrive{
+    display: flex;
+    flex: 1;
+}
+.subscrive input{
+    border: none;
+    height: 2rem;
+    width: 14rem;
+}
+.subscrive input:focus{
+    outline: none;
+}
+.subscrive button{
+    background-color: red;
+    border: none;
+    font-weight: 500;
+    color: white;
+}
+@media only screen and (max-width: 600px){
+    .footer_item{
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        text-align: start;
+    }
+    .footer_item div{
+        margin-top: 20px;
+    }
 }
